@@ -13,7 +13,7 @@
     nickname: "@bot_#{integer + 1}", 
     citizenship: "Purrwebia", 
     birthday: Time.now - (integer + 10).years - (integer + 1).days - (integer + 1).months, 
-    image: "https://i.picsum.photos/id/95#{integer + 1}/200/200.jpg", 
+    image: "https://i.picsum.photos/id/#{integer + 1}/200/200.jpg", 
     password: "123123"
   )
 end

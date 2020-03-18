@@ -28,6 +28,9 @@ gem 'rack-cors'
 # Token based authentication for Rails JSON APIs.
 gem 'devise_token_auth'
 
+# ActiveModelSerializers brings convention over configuration to your JSON generation.
+gem 'active_model_serializers', '~> 0.10.0'
+
 group :development, :test do
   # Call 'pry-rails' anywhere in the code to stop execution and get a debugger console
   # gem 'pry', git: 'https://github.com/pry/pry.git', ref: '272b3290b5250d28ee82a5ff65aa3b29b825e37b'
