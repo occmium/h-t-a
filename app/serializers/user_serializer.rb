@@ -5,4 +5,6 @@ class UserSerializer < ActiveModel::Serializer
              :citizenship, 
              :birthday, 
              :last_name
+
+  has_many :votes
 end

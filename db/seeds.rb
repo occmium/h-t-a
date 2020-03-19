@@ -17,3 +17,6 @@
     password: "123123"
   )
 end
+
+User.first.upvote_by User.second
+User.first.upvote_by User.last
