@@ -18,4 +18,5 @@ class User < ActiveRecord::Base
                           foreign_key: :user_id, 
                           association_foreign_key: :subscriber_id,
                           dependent: :destroy
+  has_many :feed_items, dependent: :destroy
 end

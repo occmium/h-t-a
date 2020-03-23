@@ -20,10 +20,28 @@ User.destroy_all
   )
 end
 
-User.first.friends << User.find_by(name: "Bot_2")
-User.second.friends << [User.find_by(name: "Bot_3"), User.find_by(name: "Bot_4")]
+first_user = User.first
+first_user.friends << User.find_by(name: "Bot_2")
+first_user.feed_items.create!(title: "TITLE of the first user", text: "TEXT of the first user")
+
+second_user = User.second
+second_user.friends << [User.find_by(name: "Bot_3"), User.find_by(name: "Bot_4")]
+2.times do |int| 
+  second_user.feed_items.create!(
+    title: "TITLE_#{int + 1} of the second user", 
+    text: "TEXT_#{int + 1} of the second user"
+  )
+end
+10.times do |int|
+  second_user.feed_items.first.upvote_by User.find_by(name: "Bot_#{int + 1}")
+end
+
 last_user = User.last
-User.all.each do |user|
+User.all.each_with_index do |user, index|
   next if last_user.id == user.id
   last_user.friends << user
+  last_user.feed_items.create!(
+    title: "TITLE_#{index + 1} of the last user", 
+    text: "TEXT_#{index + 1} of the last user"
+  )
 end
