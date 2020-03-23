@@ -8,13 +8,14 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
-
-  # after_touch :friends
    
   acts_as_voter
   acts_as_votable
 
-  # def friends
-  #   self.find_votes_for(vote_scope: "friend").voters
-  # end
+  has_and_belongs_to_many :friends, 
+                          class_name: 'User', 
+                          join_table:  :friends, 
+                          foreign_key: :user_id, 
+                          association_foreign_key: :subscriber_id,
+                          dependent: :destroy
 end

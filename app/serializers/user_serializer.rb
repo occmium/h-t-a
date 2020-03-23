@@ -6,5 +6,5 @@ class UserSerializer < ActiveModel::Serializer
              :birthday, 
              :last_name
 
-  has_many :votes
+  has_many :friends, serializer: FriendSerializer
 end
