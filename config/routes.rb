@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :feed_items
   get 'users/index'
   get 'users/show'

@@ -32,9 +32,6 @@ second_user.friends << [User.find_by(name: "Bot_3"), User.find_by(name: "Bot_4")
     text: "TEXT_#{int + 1} of the second user"
   )
 end
-10.times do |int|
-  second_user.feed_items.first.upvote_by User.find_by(name: "Bot_#{int + 1}")
-end
 
 last_user = User.last
 User.all.each_with_index do |user, index|
@@ -44,4 +41,21 @@ User.all.each_with_index do |user, index|
     title: "TITLE_#{index + 1} of the last user", 
     text: "TEXT_#{index + 1} of the last user"
   )
+end
+
+Comment.create!(
+  user: second_user, 
+  feed_item: FeedItem.first, 
+  message: "SECOND user FIRST feed_item FIRST message"
+)
+
+Comment.create!(
+  user: last_user, 
+  feed_item: FeedItem.first, 
+  message: "LAST user FIRST feed_item SECOND message"
+)
+
+10.times do |int|
+  second_user.feed_items.first.upvote_by User.find_by(name: "Bot_#{int + 1}")
+  Comment.second.upvote_by User.find_by(name: "Bot_#{int + 1}")
 end

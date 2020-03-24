@@ -1,7 +1,7 @@
-class FeedItem < ApplicationRecord
+class Comment < ApplicationRecord
   belongs_to :user
-  has_many :comments, dependent: :destroy
-  
+  belongs_to :feed_item
+
   acts_as_votable
 
   def likes
