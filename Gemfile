@@ -34,6 +34,9 @@ gem 'active_model_serializers', '~> 0.10.0'
 # Acts As Votable is a Ruby Gem specifically written for Rails/ActiveRecord models.
 gem 'acts_as_votable'
 
+# Use the graphql-ruby gem for crafting our GraphQL API
+gem "graphql", "~> 1.9"
+
 group :development, :test do
   # Call 'pry-rails' anywhere in the code to stop execution and get a debugger console
   # gem 'pry', git: 'https://github.com/pry/pry.git', ref: '272b3290b5250d28ee82a5ff65aa3b29b825e37b'
@@ -49,3 +52,4 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
