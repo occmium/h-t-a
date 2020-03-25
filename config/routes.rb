@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  post "/graphql", to: "graphql#execute"
-  resources :comments
-  resources :feed_items
-  get 'users/index'
-  get 'users/show'
+  post "/api/v1/graphql", to: "graphql#execute"
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api do
     scope :v1 do
