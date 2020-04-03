@@ -45,5 +45,8 @@ module HotTalksApi
         methods: [:get, :post, :options, :delete, :put, :patch]
       end
     end
+    
+    # To disable and allow requests from any origin:
+    config.action_cable.disable_request_forgery_protection = true
   end
 end

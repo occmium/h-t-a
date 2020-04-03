@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_030439) do
+ActiveRecord::Schema.define(version: 2020_04_02_115604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,24 @@ ActiveRecord::Schema.define(version: 2020_03_24_030439) do
     t.integer "subscriber_id"
     t.index ["subscriber_id", "user_id"], name: "index_friends_on_subscriber_id_and_user_id", unique: true
     t.index ["user_id", "subscriber_id"], name: "index_friends_on_user_id_and_subscriber_id", unique: true
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.text "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "token"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,4 +106,7 @@ ActiveRecord::Schema.define(version: 2020_03_24_030439) do
   add_foreign_key "comments", "feed_items"
   add_foreign_key "comments", "users"
   add_foreign_key "feed_items", "users"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "rooms", "users"
 end

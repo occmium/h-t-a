@@ -18,6 +18,7 @@ User.destroy_all
     image: "https://i.picsum.photos/id/#{integer + 1}/200/200.jpg", 
     password: "123123"
   )
+  Room.create!(user: User.last)
 end
 
 first_user = User.first
