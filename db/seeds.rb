@@ -8,7 +8,7 @@
 User.destroy_all
 
 10.times do |integer|
-  User.create!(
+  user = User.create!(
     email: "#{integer + 1}@example.com", 
     name: "Bot_#{integer + 1}", 
     last_name: "The_#{integer + 1}_off", 
@@ -18,7 +18,7 @@ User.destroy_all
     image: "https://i.picsum.photos/id/#{integer + 1}/200/200.jpg", 
     password: "123123"
   )
-  Room.create!(user: User.last)
+  Room.create!(user: user, topic: "#{user.name}'s topic")
 end
 
 first_user = User.first

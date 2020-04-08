@@ -3,6 +3,7 @@ class MessagesChannel < ApplicationCable::Channel
     logger.info "Subscribed to MessagesChannel"
   
     # stream_from "some_channel"
+    stream_from "chatroom_#{params[:room]}"
   end
 
   def unsubscribed
