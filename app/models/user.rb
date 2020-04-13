@@ -20,5 +20,5 @@ class User < ActiveRecord::Base
                           dependent: :destroy
   has_many :feed_items, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :rooms, dependent: :destroy
+  has_many :chatrooms, dependent: :destroy
 end

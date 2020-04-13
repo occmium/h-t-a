@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # resources :messages
-  # resources :rooms
+  # resources :chatrooms
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   namespace :api do
     scope :v1 do
@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   scope :api do
     scope :v1 do
       post "/graphql", to: "graphql#execute"
-      get "/chatrooms", to: "rooms#index"
+      get "/chatrooms", to: "chatrooms#index"
     end
   end
 end
