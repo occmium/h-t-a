@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url: redis://redistogo:fbe56a235fa974a7e5af6e82e83333f3@tarpon.redistogo.com:11561/
   channel_prefix: hot_talks_api_production
