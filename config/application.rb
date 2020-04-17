@@ -48,5 +48,11 @@ module HotTalksApi
     
     # To disable and allow requests from any origin:
     config.action_cable.disable_request_forgery_protection = true
+
+    # To fix "Required middlewares for RailsAdmin are not added"" add:
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Flash
+    config.middleware.use Rack::MethodOverride
+    config.middleware.use ActionDispatch::Session::CookieStore, {:key=>"_hot_talks_api_session"}
   end
 end

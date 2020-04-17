@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: redis://redistogo:fbe56a235fa974a7e5af6e82e83333f3@tarpon.redistogo.com:11561/
+  url: redis://redistogo:eeed328023954a1071be2e6d5fd146f2@dory.redistogo.com:10265/
   channel_prefix: hot_talks_api_production
